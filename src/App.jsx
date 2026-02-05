@@ -18,10 +18,11 @@ import AdminDashboard from "./pages/Admin/AdminDashboard";
 import Buildings from "./pages/Admin/Buildings";
 import Rooms from "./pages/Admin/Rooms";
 import Tenants from "./pages/Admin/Tenants";
-
+import AdminPayments from "./pages/Admin/Payments";
 
 // Tenant
 import TenantDashboard from "./pages/Tenant/TenantDashboard";
+import TenantPayments from "./pages/Tenant/TenantPayments";
 
 const App = () => {
   return (
@@ -76,12 +77,31 @@ const App = () => {
           }
         />
 
+        {/* Admin Payments */}
+        <Route
+          path="/admin/payments"
+          element={
+            <ProtectedRoute>
+              <AdminPayments />
+            </ProtectedRoute>
+          }
+        />
+
         {/* Tenant Route */}
         <Route
           path="/tenant/dashboard"
           element={
             <ProtectedRoute>
               <TenantDashboard />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/tenant/payments"
+          element={
+            <ProtectedRoute>
+              <TenantPayments />
             </ProtectedRoute>
           }
         />

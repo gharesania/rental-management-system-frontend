@@ -1,12 +1,12 @@
 import { Nav } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import {
   FaTachometerAlt,
   FaBuilding,
   FaDoorOpen,
   FaUsers,
-  FaUser,
   FaMoneyBillWave,
+  FaUser,
 } from "react-icons/fa";
 
 const Sidebar = () => {
@@ -40,29 +40,52 @@ const Sidebar = () => {
               <FaUsers className="me-2" />
               Tenants
             </Nav.Link>
+
+            <Nav.Link as={Link} to="/admin/payments">
+              <FaMoneyBillWave className="me-2" />
+              Payments
+            </Nav.Link>
           </>
         )}
 
         {/* Tenant Menu */}
         {role === "Tenant" && (
           <>
-            <Nav.Link as={Link} to="/tenant/dashboard">
+            <Nav.Link
+              as={NavLink}
+              to="/tenant/dashboard"
+              className={({ isActive }) =>
+                isActive ? "fw-bold text-primary" : ""
+              }
+            >
               <FaTachometerAlt className="me-2" />
               Dashboard
             </Nav.Link>
 
-            <Nav.Link as={Link} to="/tenant/my-room">
+            <Nav.Link
+              as={NavLink}
+              to="/tenant/my-room"
+              className={({ isActive }) =>
+                isActive ? "fw-bold text-primary" : ""
+              }
+            >
               <FaDoorOpen className="me-2" />
               My Room
             </Nav.Link>
 
-            <Nav.Link as={Link} to="/tenant/payments">
+            <Nav.Link
+              as={NavLink}
+              to="/tenant/payments"
+              className={({ isActive }) =>
+                isActive ? "fw-bold text-primary" : ""
+              }
+            >
               <FaMoneyBillWave className="me-2" />
-              Payments
+              My Payments
             </Nav.Link>
           </>
         )}
-        
+
         {/* Common */}
         <Nav.Link as={Link} to="/profile">
           <FaUser className="me-2" />

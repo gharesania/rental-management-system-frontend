@@ -1,32 +1,32 @@
 import axiosInstance from "./axios";
 
 export const createRoom = (data) => {
-  return axiosInstance.post("/rooms/createRoom", data);
+  return axiosInstance.post("/room/createRoom", data);
 };
 
 export const getAllRooms = (buildingId) => {
-  const url = buildingId
-    ? `/rooms/getAllRooms?building=${buildingId}`
-    : "/rooms/getAllRooms";
-  return axiosInstance.get(url);
+  if (buildingId) {
+    return axiosInstance.get(`/room/getAllRooms?building=${buildingId}`);
+  }
+  return axiosInstance.get("/room/getAllRooms");
 };
 
 export const getRoomById = (id) => {
-  return axiosInstance.get(`/rooms/getRoomById/${id}`);
+  return axiosInstance.get(`/room/getRoomById/${id}`);
 };
 
 export const updateRoom = (id, data) => {
-  return axiosInstance.put(`/rooms/updateRoom/${id}`, data);
+  return axiosInstance.put(`/room/updateRoom/${id}`, data);
 };
 
 export const deleteRoom = (id) => {
-  return axiosInstance.delete(`/rooms/deleteRoom/${id}`);
+  return axiosInstance.delete(`/room/deleteRoom/${id}`);
 };
 
 export const getBuildingRoomStats = () => {
-  return axiosInstance.get("/rooms/buildingRoomStats");
+  return axiosInstance.get("/room/buildingRoomStats");
 };
 
 export const assignTenantToRoom = (data) => {
-  return axiosInstance.post("/rooms/assignTenant", data);
+  return axiosInstance.post("/room/assignTenant", data);
 };

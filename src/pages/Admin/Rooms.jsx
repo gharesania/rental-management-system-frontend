@@ -299,7 +299,11 @@ const Rooms = () => {
 
                         <Badge
                           bg={
-                            room.status === "Available" ? "success" : "danger"
+                            room.status === "Available"
+                              ? "success"
+                              : room.status === "Occupied"
+                                ? "danger"
+                                : "warning"
                           }
                         >
                           {room.status}
@@ -325,17 +329,28 @@ const Rooms = () => {
 
                       <Card.Footer className="bg-white border-0 d-flex justify-content-between">
                         {room.status === "Available" && (
-                          <Button size="sm" variant="success">
+                          <Button
+                            size="sm"
+                            variant="success"
+                            onClick={() => handleAssignClick(room)}
+                          >
                             <FaUserPlus />
                           </Button>
                         )}
-                        <Button size="sm" variant="warning">
+
+                        <Button
+                          size="sm"
+                          variant="warning"
+                          onClick={() => handleEditClick(room)}
+                        >
                           <FaEdit />
                         </Button>
+
                         <Button
                           size="sm"
                           variant="danger"
                           disabled={room.status === "Occupied"}
+                          onClick={() => handleDeleteClick(room)}
                         >
                           <FaTrash />
                         </Button>

@@ -3,7 +3,13 @@ import { Button, Card, Modal, Form, Row, Col, Table } from "react-bootstrap";
 import { FaPlus, FaBuilding } from "react-icons/fa";
 import { toast } from "react-toastify";
 import Layout from "../../components/Layout";
-import { createBuilding, getAllBuildings } from "../../api/buildingAPI";
+import {
+  createBuilding,
+  getAllBuildings,
+  deleteBuilding,
+  updateBuilding,
+} from "../../api/buildingAPI";
+
 import { getBuildingRoomStats } from "../../api/roomAPI";
 import buildingImage from "../../assets/Images/Building.jpg";
 

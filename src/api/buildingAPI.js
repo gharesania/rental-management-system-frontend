@@ -9,9 +9,9 @@ export const getAllBuildings = () => {
 };
 
 export const updateBuilding = (id, data) => {
-  return axiosInstance.put(`/building/updateBuilding/${id}`, data);
+  return axiosInstance.put(`/buildings/updateBuilding/${id}`, data);
 };
 
 export const deleteBuilding = (id) => {
-  return axiosInstance.delete(`/building/deleteBuilding/${id}`);
+  return axiosInstance.delete(`/buildings/deleteBuilding/${id}`);
 };
